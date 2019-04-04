@@ -1,0 +1,25 @@
+{
+  "name": "node-api-postgres",
+  "version": "1.0.0",
+  "description": "RESTful API with Node.js, Express, and PostgreSQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -L index.js",
+    "migrate": "node-pg-migrate",
+    "test": "mocha --exit"
+  },
+  "author": "Afrizal Iman",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "node-pg-migrate": "^3.18.1",
+    "pg": "^7.9.0",
+    "jsonwebtoken": "^8.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2"
+  }
+}
