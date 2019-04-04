@@ -18,4 +18,18 @@ route.post('/company', middleware.checkToken, companyController.validate('create
 route.patch('/company/:id', middleware.checkToken, companyController.validate('updateCompany'), companyController.updateCompany)
 route.delete('/company/:id', middleware.checkToken,companyController.validate('deleteCompany'), companyController.deleteCompany)
 
+// CRUD Employee Feature
+const employeeController = require('../controllers/employeeController')
+route.get('/employee', employeeController.getEmployee)
+route.get('/employee/get-by-id-no/:id_no', employeeController.getEmployeeByIdNo)
+route.get('/employee/get-history-company/:id_no', employeeController.getHistoryCompanyEmployee)
+route.post('/employee/search-by-name', middleware.checkToken, employeeController.searchEmployeeByName)
+route.post('/employee/set-partner', middleware.checkToken, employeeController.setPartner)
+route.get('/employee/get-partner/:id_no', employeeController.getPartner)
+route.get('/employee/get-partner-of-partner/:id_no', employeeController.getPartnerOfPartner)
+route.get('/employee/get-employee-partner-company/:id_no', employeeController.getEmployeePartnerCompany)
+route.post('/employee', middleware.checkToken, employeeController.validate('createEmployee'), employeeController.createEmployee)
+route.patch('/employee/:id', middleware.checkToken, employeeController.validate('updateEmployee'),employeeController.updateEmployee)
+route.delete('/employee/:id',middleware.checkToken, employeeController.validate('deleteEmployee'), employeeController.deleteEmployee)
+
 module.exports = route;
