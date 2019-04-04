@@ -407,5 +407,112 @@ describe('API Routes', () => {
             }
         }
     });
-    // End Unit Test Feature Employee
+    // End Unit Test Feature Employee Company
+
+    // Set Employee Company
+
+     describe('POST /v1/company/set-employee/:company_id', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .post('/v1/company/set-employee/2')
+            .send({
+                employee_id: '2',
+                division : 'RnD ',
+                job_position : 'Senior Engineer ',
+                join_date : '2019-02-01'
+                })
+            .end(function(err, res) {
+                res.should.have.status(400);
+                res.should.be.json;
+                res.body.should.have.property('message');
+                res.body.message.should.equal('Not Authorized Access');
+                done();
+            });
+        });
+    });
+
+     describe('POST /v1/company/set-employee/:company_id', function() {
+        for(let i = 2; i<=6; i++){
+            for(let j = i; j<=7; j++){
+                it('should return json', function(done) {
+                    chai.request(server)
+                    .post('/v1/company/set-employee/'+i)
+                    .set('Authorization', 'Bearer ' + token)
+                    .send({
+                        employee_id: j,
+                        division : 'RnD '+j,
+                        job_position : 'Senior Engineer '+i,
+                        join_date : '2019-02-'+i
+                        })
+                    .end(function(err, res) {
+                        res.should.have.status(200);
+                        res.should.be.json;
+                        done();
+                    });
+                });
+            }
+        }
+    });
+
+    // Update Employee Company
+    describe('PATCH /v1/company/update-employee/:company_id/:employee_id', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .patch('/v1/company/update-employee/2/2')
+            .end(function(err, res) {
+                res.should.have.status(400);
+                res.should.be.json;
+                res.body.should.have.property('message');
+                res.body.message.should.equal('Not Authorized Access');
+                done();
+            });
+        });
+    });
+
+     describe('PATCH /v1/company/update-employee/:company_id/:employee_id', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .patch('/v1/company/update-employee/2/2')
+            .set('Authorization', 'Bearer ' + token)
+            .send({
+                division : 'RnD Update',
+                job_position : 'Senior Engineer Update',
+                join_date : '2019-02-01',
+                resign_date : '2019-10-02',
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                res.should.be.json;
+                done();
+            });
+        });
+    });
+
+    // Delete Employee Company
+    describe('DELETE /v1/company/delete-employee/:company_id/:employee_id', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .delete('/v1/company/delete-employee/2/5')
+            .end(function(err, res) {
+                res.should.have.status(400);
+                res.should.be.json;
+                res.body.should.have.property('message');
+                res.body.message.should.equal('Not Authorized Access');
+                done();
+            });
+        });
+    });
+
+     describe('DELETE /v1/company/delete-employee/:company_id/:employee_id', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .delete('/v1/company/delete-employee/2/5')
+            .set('Authorization', 'Bearer ' + token)
+            .end(function(err, res) {
+                res.should.have.status(200);
+                res.should.be.json;
+                done();
+            });
+        });
+    });
 });
