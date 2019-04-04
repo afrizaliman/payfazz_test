@@ -67,15 +67,167 @@ describe('API Routes', () => {
 
     // Unit Test Feature Company
 
-    // Insert Company
-    describe('POST /v1/company', function() {
+    // // Insert Company
+    // describe('POST /v1/company', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .post('/v1/company')
+    //         .send({
+    //             company_code: '111',
+    //             company_name : 'Company 1',
+    //             company_address : 'Jalan Company 1'
+    //             })
+    //         .end(function(err, res) {
+    //             res.should.have.status(400);
+    //             res.should.be.json;
+    //             res.body.should.have.property('message');
+    //             res.body.message.should.equal('Not Authorized Access');
+    //             done();
+    //         });
+    //     });
+    // });
+
+    // describe('POST /v1/company', function() {
+    //     for(let i = 1; i<=6; i++){
+    //         it('should return json', function(done) {
+    //             chai.request(server)
+    //             .post('/v1/company')
+    //             .set('Authorization', 'Bearer ' + token)
+    //             .send({
+    //                 company_code: i+''+i+''+i+''+i,
+    //                 company_name : 'Company '+i,
+    //                 company_address : 'Jalan Company '+i
+    //                 })
+    //             .end(function(err, res) {
+    //                 res.should.have.status(200);
+    //                 res.should.be.json;
+    //                 done();
+    //             });
+    //         });
+    //     }
+    // });
+
+    // // Update Company
+    // describe('PATCH /v1/company', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .patch('/v1/company/1')
+    //         .send({
+    //             company_name : 'Company 1 A',
+    //             company_address : 'Jalan Company 1 A'
+    //             })
+    //         .end(function(err, res) {
+    //             res.should.have.status(400);
+    //             res.should.be.json;
+    //             res.body.should.have.property('message');
+    //             res.body.message.should.equal('Not Authorized Access');
+    //             done();
+    //         });
+    //     });
+    // });
+
+    // describe('PATCH /v1/company', function() {
+    //     for(let i = 1; i<=3; i++){
+    //         it('should return json', function(done) {
+    //             chai.request(server)
+    //             .patch('/v1/company/'+i)
+    //             .set('Authorization', 'Bearer ' + token)
+    //             .send({
+    //                 company_name : 'Company '+i+' A',
+    //                 company_address : 'Jalan Company '+i+' A'
+    //                 })
+    //             .end(function(err, res) {
+    //                 res.should.have.status(200);
+    //                 res.should.be.json;
+    //                 done();
+    //             });
+    //         });
+    //     }
+    // });
+
+    // // Delete Company
+    // describe('DELETE /v1/company/1', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .delete('/v1/company/1')
+    //         .end(function(err, res) {
+    //             res.should.have.status(400);
+    //             res.should.be.json;
+    //             res.body.should.have.property('message');
+    //             res.body.message.should.equal('Not Authorized Access');
+    //             done();
+    //         });
+    //     });
+    // });
+
+    // describe('DELETE /v1/company', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .delete('/v1/company/1')
+    //         .set('Authorization', 'Bearer ' + token)
+    //         .end(function(err, res) {
+    //             res.should.have.status(200);
+    //             res.should.be.json;
+    //             done();
+    //         });
+    //     });
+    // });
+
+    // // Get Company By Company Code
+    // describe('GET /v1/company/get-by-code/2222', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .get('/v1/company/get-by-code/2222')
+    //         .end(function(err, res) {
+    //             res.should.have.status(200);
+    //             res.should.be.json;
+    //             done();
+    //         });
+    //     });
+    // });
+
+    //  // Get All Company 
+    // describe('GET /v1/company', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .get('/v1/company')
+    //         .end(function(err, res) {
+    //             res.should.have.status(200);
+    //             res.should.be.json;
+    //             done();
+    //         });
+    //     });
+    // });
+
+    // // Search Company By Company Name
+    // describe('POST /v1/company/search-by-name', function() {
+    //     it('should return json', function(done) {
+    //         chai.request(server)
+    //         .post('/v1/company/search-by-name')
+    //         .set('Authorization', 'Bearer ' + token)
+    //         .send({
+    //             key : 'Company'
+    //             })
+    //         .end(function(err, res) {
+    //             res.should.have.status(200);
+    //             res.should.be.json;
+    //             done();
+    //         });
+    //     });
+    // });
+    // // End Unit Test Feature Company
+
+    // Unit Test Feature Employee
+    // Insert Employee
+    describe('POST /v1/employee', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .post('/v1/company')
+            .post('/v1/employee')
             .send({
-                company_code: '111',
-                company_name : 'Company 1',
-                company_address : 'Jalan Company 1'
+                employee_email: 'employee1@gmail.com',
+                employee_id_no : '1111',
+                employee_name : 'Employee 5',
+                employee_phone : '123456789'
                 })
             .end(function(err, res) {
                 res.should.have.status(400);
@@ -87,16 +239,17 @@ describe('API Routes', () => {
         });
     });
 
-    describe('POST /v1/company', function() {
-        for(let i = 1; i<=6; i++){
+    describe('POST /v1/employee', function() {
+        for(let i = 1; i<=7; i++){
             it('should return json', function(done) {
                 chai.request(server)
-                .post('/v1/company')
+                .post('/v1/employee')
                 .set('Authorization', 'Bearer ' + token)
                 .send({
-                    company_code: i+''+i+''+i+''+i,
-                    company_name : 'Company '+i,
-                    company_address : 'Jalan Company '+i
+                    employee_email: 'employee'+i+'@gmail.com',
+                    employee_id_no : i+''+i+''+i+''+i,
+                    employee_name : 'Employee '+i,
+                    employee_phone : '123456789'
                     })
                 .end(function(err, res) {
                     res.should.have.status(200);
@@ -107,14 +260,16 @@ describe('API Routes', () => {
         }
     });
 
-    // Update Company
-    describe('PATCH /v1/company', function() {
+    // Update Employee
+    describe('PATCH /v1/employee', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .patch('/v1/company/1')
+            .patch('/v1/employee/1')
             .send({
-                company_name : 'Company 1 A',
-                company_address : 'Jalan Company 1 A'
+                employee_email: 'employee1@gmail.com',
+                employee_id_no : '1111',
+                employee_name : 'Employee 5',
+                employee_phone : '123456789'
                 })
             .end(function(err, res) {
                 res.should.have.status(400);
@@ -126,15 +281,17 @@ describe('API Routes', () => {
         });
     });
 
-    describe('PATCH /v1/company', function() {
-        for(let i = 1; i<=3; i++){
+    describe('PATCH /v1/employee', function() {
+        for(let i = 1; i<=2; i++){
             it('should return json', function(done) {
                 chai.request(server)
-                .patch('/v1/company/'+i)
+                .patch('/v1/employee/'+i)
                 .set('Authorization', 'Bearer ' + token)
                 .send({
-                    company_name : 'Company '+i+' A',
-                    company_address : 'Jalan Company '+i+' A'
+                    employee_email: 'employee'+i+'@gmail.com',
+                    employee_id_no : i+''+i+''+i+''+i,
+                    employee_name : 'Employee '+i+' A',
+                    employee_phone : '123456789'
                     })
                 .end(function(err, res) {
                     res.should.have.status(200);
@@ -145,11 +302,11 @@ describe('API Routes', () => {
         }
     });
 
-    // Delete Company
-    describe('DELETE /v1/company/1', function() {
+    // Delete Employee
+    describe('DELETE /v1/employee/1', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .delete('/v1/company/1')
+            .delete('/v1/employee/1')
             .end(function(err, res) {
                 res.should.have.status(400);
                 res.should.be.json;
@@ -160,10 +317,10 @@ describe('API Routes', () => {
         });
     });
 
-    describe('DELETE /v1/company', function() {
+    describe('DELETE /v1/employee', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .delete('/v1/company/1')
+            .delete('/v1/employee/1')
             .set('Authorization', 'Bearer ' + token)
             .end(function(err, res) {
                 res.should.have.status(200);
@@ -173,11 +330,11 @@ describe('API Routes', () => {
         });
     });
 
-    // Get Company By Company Code
-    describe('GET /v1/company/get-by-code/2222', function() {
+    // Get Employee By Employee Id No
+    describe('GET /v1/employee/get-by-id-no/2222', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .get('/v1/company/get-by-code/2222')
+            .get('/v1/employee/get-by-id-no/2222')
             .end(function(err, res) {
                 res.should.have.status(200);
                 res.should.be.json;
@@ -186,11 +343,11 @@ describe('API Routes', () => {
         });
     });
 
-     // Get All Company 
-    describe('GET /v1/company', function() {
+     // Get All Employee 
+    describe('GET /v1/employee', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .get('/v1/company')
+            .get('/v1/employee')
             .end(function(err, res) {
                 res.should.have.status(200);
                 res.should.be.json;
@@ -199,14 +356,14 @@ describe('API Routes', () => {
         });
     });
 
-    // Search Company By Company Name
-    describe('POST /v1/company/search-by-name', function() {
+    // Search Employee By Employee Name
+    describe('POST /v1/employee/search-by-name', function() {
         it('should return json', function(done) {
             chai.request(server)
-            .post('/v1/company/search-by-name')
+            .post('/v1/employee/search-by-name')
             .set('Authorization', 'Bearer ' + token)
             .send({
-                key : 'Company'
+                key : 'Employee'
                 })
             .end(function(err, res) {
                 res.should.have.status(200);
@@ -215,5 +372,40 @@ describe('API Routes', () => {
             });
         });
     });
-    // End Unit Test Feature Company
+
+    // Get History Company Employee By Id No
+    describe('GET /v1/employee/get-history-company/2222', function() {
+        it('should return json', function(done) {
+            chai.request(server)
+            .get('/v1/employee/get-history-company/2222')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                res.should.be.json;
+                done();
+            });
+        });
+    });
+
+    // Set Partner Employee
+    describe('POST /v1/employee/set-partner', function() {
+        for(let i = 2; i<=5; i++){
+            for(let j = i+1; j<=7; j++){
+                it('should return json', function(done) {
+                    chai.request(server)
+                    .post('/v1/employee/set-partner')
+                    .set('Authorization', 'Bearer ' + token)
+                    .send({
+                        employee_id_request: i,
+                        employee_id_approved : j
+                        })
+                    .end(function(err, res) {
+                        res.should.have.status(200);
+                        res.should.be.json;
+                        done();
+                    });
+                });
+            }
+        }
+    });
+    // End Unit Test Feature Employee
 });
