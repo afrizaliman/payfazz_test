@@ -32,4 +32,12 @@ route.post('/employee', middleware.checkToken, employeeController.validate('crea
 route.patch('/employee/:id', middleware.checkToken, employeeController.validate('updateEmployee'),employeeController.updateEmployee)
 route.delete('/employee/:id',middleware.checkToken, employeeController.validate('deleteEmployee'), employeeController.deleteEmployee)
 
+// CRUD Employee Company Feature
+const employeeCompanyController = require('../controllers/employeeCompanyController')
+route.get('/company/get-current-employee-by-code/:company_code', employeeCompanyController.getCurrentEmployeeByCode)
+route.get('/company/get-employee-by-code/:company_code', employeeCompanyController.getEmployeeByCode)
+route.post('/company/set-employee/:company_id',middleware.checkToken, employeeCompanyController.setEmployee)
+route.patch('/company/update-employee/:company_id/:employee_id',middleware.checkToken, employeeCompanyController.updateEmployee)
+route.delete('/company/delete-employee/:company_id/:employee_id',middleware.checkToken, employeeCompanyController.deleteEmployee)
+
 module.exports = route;
